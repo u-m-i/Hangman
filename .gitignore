@@ -127,3 +127,15 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#Conda stuff
+bin/
+compiler_compat/
+conda-meta/
+include/
+lib/
+ssl/
+share/
+x86_64-conda_cos6-linux-gnu/
+x86_64-conda-linux-gnu/
+
