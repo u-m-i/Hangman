@@ -3,17 +3,18 @@
 from random import randint
 from unidecode import unidecode
 import ascii_art
+import os
 
 class Hangman:
 
 
-    def __init__(self) -> None:
+    def __init__(self):
 
         """ Define the principal status of the hangman
         """
 
         # Define the word
-        self._word = self._get_word()
+        self._word, self.duplicate, self.random_word = self._get_word()
 
         #The body for the hangman
         self.body = ascii_art.hangman_body()
@@ -21,7 +22,7 @@ class Hangman:
         self.status = self.body[0]
 
 
-    def _get_word(self) -> tuple:
+    def _get_word(self):
 
         """ Gets the random word , and convert it in a dict.
         """
@@ -31,41 +32,36 @@ class Hangman:
             # Obtain a list with the words
             w_list = [word for word in f if word != "\n"]
             #get a word
-            random_word = unidecode(w_list[randint(1,len(w_list))])
+            self.random_word = unidecode(w_list[randint(1,len(w_list))])
             # Define the dict
-            self._word = {letter : "__" for letter in random_word if letter != "\n"}
+            self._word = [{letter :"__"} for letter in self.random_word if letter != "\n"]
+            self.duplicate = [{letter : letter } for letter in self.random_word if letter != "\n"]
+            return (self._word, self.duplicate, self.random_word)
 
-            return (self._word)
 
-
-    def confirm(self, letter: str) -> tuple :
+    def confirm(self, letter: str) :
         
-        """ Confirms the existence of the letter in the list. If the letter is correct, the incognite list gets replace the letter.
+        """ Confirms the existence of the letter in the dict, if the letter is in the dict, twist the position, key value.
         """
 
-        #quit this
-        if self._word == self.incognite:
+        #Confirm
 
-            return  "Lo lograste, completaste la palabra."
+        for i in range(len(self._word)):
 
-        else:
+            if letter in self._word[i].keys():
 
-            for i in range(len(self._word)):
-
-                if letter == self._word[i]:
-                    
-                    self.incognite.remove(self.incognite[i])
-                    self.incognite.insert(i,letter)
-
-                    return (True, "Le atinaste Muy bien!", self.incognite)
-                    
-                else:
-                    continue
-
+                self._word[i].update({letter : letter})
+                os.system("clear")
+                print("Muy bien, adivinaste\n")
+                return 0
             else:
+                continue
 
-                return (False, "Lo lamento no has atinado")
+        os.system("clear")
+        print("Lo siento no has adivinado\n")
+        return 0
 
+        
 
 
 

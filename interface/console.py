@@ -3,80 +3,54 @@
 from hangman import Hangman
 from ascii_art import greeting
 # Utilities
-from time import sleep
+
 import os
 
 
-class Console(Hangman):
+class Console:
+
     
     def __init__(self) -> None:
-        super().__init__()
-        self.user_word = super()._word
-    
+
+        #Print the greeting()
+        greeting()
+        # Initialize the object
+        self.hangman = Hangman()
+        self.user_word = self.hangman._word
+        self.duplicate = self.hangman.duplicate
+
+
     def interface(self):
-        pass
+        if self.duplicate == self.user_word:
+            i = 1
+            print("Felicidades, GANASTE!!!!")
+            return i + 1
 
-    
+        print(f"La palabra tiene {len(self.user_word)} letras.\n")
 
-def interface(user_word, unknow_w, hangman):
-
-    if user_word == unknow_w:
-        know_w = ""
-        for i in unknow_w:
-            know_w = know_w + i
-
-        print(f"\nLa palabra era: {know_w}")
-        return "Felicidades! has completado la palabra"
-
-    print("ª"*100,end="\n")
-    print(f"La palabra està conformada por {len(user_word)} letras \n")
-
-    for i in user_word:
-        print(i, end=" ")
-
-    user_letter= input("\nAhora adivina y danos una sola letra: ").upper()
-    correct = hangman.confirm(user_letter)
-
-    if True in correct:
-        os.system("clear")
-        print(correct[1])
-        user_word = correct[2]
-        return user_word, unknow_w
-
-    elif correct is str:
-
-        print(correct)
+        for i in range(len(self.user_word)):
+            for j in self.user_word[i].values():
+                print(f"{j} " , end=" ")
         
-    else:
+        print("\n")
+        self.user_letter = input("Pon aquí tu letra: ")
+        self.checkout(self.user_letter)
+    
 
-        print(correct[1])
-        return user_word, unknow_w
+    def checkout(self,user_letter):
+        self.hangman.confirm(user_letter)
         
-
-
-def console():
-
-    """ The console game
-    """
-    hangman = Hangman()
-    user_word = hangman.incognite
-    unknow_w = hangman._word
-
     
 
-    greeting()
-    user_word, unknow_w = interface(user_word, unknow_w, hangman)
-    while user_word != unknow_w:
-        user_word, unknow_w = interface(user_word, unknow_w, hangman)
-    print(f"muy bien has ganado.")
 
-
-    
-
-if __name__ == "__main__":
-    console()
   
-    
+if __name__ == "__main__":
+    i = 0
+    console = Console()
+    while i < 1:
+        console.interface()
+      
+        
     
 
 

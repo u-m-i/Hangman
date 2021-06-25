@@ -67,7 +67,7 @@ def greeting():
 
     """ Start the game with a greeting
     """
-    with open("/home/umi/Documents/Projects/devs/Hangman/console/assets/welcom.txt" , "r", encoding="utf-8") as f:
+    with open("/home/umi/Documents/Projects/devs/Hangman/interface/assets/welcom.txt" , "r", encoding="utf-8") as f:
       print(f.read())
 
 
