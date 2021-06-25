@@ -1,10 +1,11 @@
 """ The console to interact with """
 # Hangman
 from hangman import Hangman
-from ascii_art import greeting
+from assets.ascii_art import greeting
 # Utilities
 
 import os
+from time import sleep
 
 
 class Console:
@@ -39,16 +40,31 @@ class Console:
 
     def checkout(self,user_letter):
         self.hangman.confirm(user_letter)
+
+
+
+def run():
+    i = 0
+    sleep(2)
+    console_1 = Console()
+    sleep(3)
+    while i < 1:
+        console_1.interface()
+
+
+if __name__ == "__main__":
+    run()
+    
+
+
+
+
         
     
 
 
-  
-if __name__ == "__main__":
-    i = 0
-    console = Console()
-    while i < 1:
-        console.interface()
+
+
       
         
     

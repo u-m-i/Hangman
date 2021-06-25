@@ -2,7 +2,7 @@
 
 from random import randint
 from unidecode import unidecode
-import ascii_art
+from assets.ascii_art import hangman_body
 import os
 
 class Hangman:
@@ -17,7 +17,7 @@ class Hangman:
         self._word, self.duplicate, self.random_word = self._get_word()
 
         #The body for the hangman
-        self.body = ascii_art.hangman_body()
+        self.body = hangman_body()
 
         self.status = self.body[0]
 
@@ -53,13 +53,12 @@ class Hangman:
                 self._word[i].update({letter : letter})
                 os.system("clear")
                 print("Muy bien, adivinaste\n")
-                return 0
+                
             else:
                 continue
 
         os.system("clear")
         print("Lo siento no has adivinado\n")
-        return 0
 
         
 

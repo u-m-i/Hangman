@@ -20,9 +20,11 @@
                                                         #::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#::#:
                                                             :#:                                                                                                                                :#:              
                                                             :#:    La dinámica es muy simple, se generará una palabra aleatoria y se te pedirá que adivines letra por letra.                   :#:              
-                                                            :#:     Cuándo adivines, automáticamente se revelarán las letras en la palabra, en el caso contrario, perderás una oportunidad:    :#:
+                                                            :#:    Cuándo adivines, automáticamente se revelarán las letras en la palabra, si no lo haces, puedes voverl a intentar,           :#:
+                                                            :#:    recuerda que cuando ganes,  vas a tener que dar CTR-C.                                                                      :#:
+                                                            :#:                                                                                                                                :#:
                                                             :#:    1. No puedes poner más de dos letras                                                                                        :#:
-                                                            :#:    2. Tienes un límite de intentos                                                                                             :#:
+                                                            :#:    2. Recuerda CTR-C                                                                                                           :#:
                                                             :#:                                                                                                                                :#:       
                                                             :#:     _______________                                                                                                            :#:
                                                             :#:    < Buenas suerte >                                                                                                           :#:              
