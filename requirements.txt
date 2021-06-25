@@ -1,8 +1,0 @@
-asgiref==3.3.4
-beautifulsoup4==4.9.3
-certifi==2021.5.30
-Django==3.2
-pip==21.1.2
-setuptools==52.0.0.post20210125
-soupsieve==2.2.1
-wheel==0.36.2
