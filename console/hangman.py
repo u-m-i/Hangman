@@ -1,8 +1,8 @@
 """ hangaman class with all methods"""
 
-from random import randint, randrange
+from random import randint
 from unidecode import unidecode
-from console import ascii_art
+import ascii_art
 
 class Hangman:
 
@@ -28,8 +28,11 @@ class Hangman:
 
         with open("console/assets/data.txt","r", encoding="utf-8") as f:
 
+            # Obtain a list with the words
             w_list = [word for word in f if word != "\n"]
+            #get a word
             random_word = unidecode(w_list[randint(1,len(w_list))])
+            #
             self._word = [letter.upper() for letter in random_word if letter != "\n"]  
             self.incognite = ["__" for i in self._word ]
 
@@ -51,10 +54,12 @@ class Hangman:
             for i in range(len(self._word)):
 
                 if letter == self._word[i]:
-
+                    
                     self.incognite.remove(self.incognite[i])
                     self.incognite.insert(i,letter)
+
                     return (True, "Le atinaste Muy bien!", self.incognite)
+                    
                 else:
                     continue
 

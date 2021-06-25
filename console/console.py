@@ -1,8 +1,9 @@
 """ The console to interact with """
 # Hangman
 from hangman import Hangman
-from console.ascii_art import greeting
+from ascii_art import greeting
 # Utilities
+from time import sleep
 import os
 
 
@@ -26,7 +27,7 @@ def interface(user_word, unknow_w, hangman):
     correct = hangman.confirm(user_letter)
 
     if True in correct:
-        #os.ter
+        os.system("clear")
         print(correct[1])
         user_word = correct[2]
         return user_word, unknow_w
